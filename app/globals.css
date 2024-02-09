@@ -19,7 +19,7 @@
 .bg_text {
     background: linear-gradient(
         90deg,
-        #101023 10.71%,
+        rgb(16, 16, 35) 10.71%,
         rgba(15, 15, 30, 0.64) 50.71%,
         rgba(13, 13, 25, 0.84) 88.54%
     );
@@ -43,8 +43,8 @@
 .bg_linear {
     background: linear-gradient(
         90deg,
-        #1f1f1f 10.71%,
+        rgb(31, 31, 31) 10.71%,
         rgba(29, 29, 29, 0.64) 50.71%,
-        rgba(17, 17, 17, 0.84) 88.54%
+        rgba(19, 19, 19, 0.84) 88.54%
     );
 }
