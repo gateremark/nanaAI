@@ -8,9 +8,9 @@ export default function Logo({className}: Props) {
             <>
                 <defs>
                     <linearGradient id="LogoGradient">
-                        <stop stop-color="#51504f" offset="0"></stop>
-                        <stop stop-color="#939598" offset="0.5"></stop>
-                        <stop stop-color="#51504f" offset="1"></stop>
+                        <stop stopColor="#51504f" offset="0"></stop>
+                        <stop stopColor="#939598" offset="0.5"></stop>
+                        <stop stopColor="#51504f" offset="1"></stop>
                     </linearGradient>
                 </defs>
                 <g
