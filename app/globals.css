@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    height: 100%;
+}
+::-webkit-scrollbar-thumb {
+    background: #6d6d6d;
+    border-radius: 10px;
+    opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bg_text {
+    background: linear-gradient(
+        90deg,
+        #101023 10.71%,
+        rgba(15, 15, 30, 0.64) 50.71%,
+        rgba(13, 13, 25, 0.84) 88.54%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bg_text_dark {
+    background: linear-gradient(
+        90deg,
+        rgb(107, 107, 107) 10.71%,
+        rgba(80, 80, 80, 0.64) 50.71%,
+        rgb(107, 107, 107) 88.54%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.bg_linear {
+    background: linear-gradient(
+        90deg,
+        #1f1f1f 10.71%,
+        rgba(29, 29, 29, 0.64) 50.71%,
+        rgba(17, 17, 17, 0.84) 88.54%
+    );
 }
