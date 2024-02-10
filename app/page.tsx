@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "./components/Navbar";
-import SquigglyLines from "./assets/SquigglyLines";
+import Lines from "./assets/Lines";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import { SiGithub } from "react-icons/si";
@@ -33,7 +33,7 @@ export default function Home() {
                 <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-gray-900 sm:text-5xl md:text-7xl text-center dark:text-gray-500">
                     Empower your studies
                     <span className="relative whitespace-nowrap text-[#3087df]">
-                        <SquigglyLines />
+                        <Lines />
                         <span className="relative"> with AI</span>
                     </span>{" "}
                     <span

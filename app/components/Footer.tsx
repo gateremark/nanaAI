@@ -12,6 +12,8 @@ export default function Footer(props: Props) {
                     href="https://gatere.me"
                     target="_blank"
                     className="font-bold transition hover:text-black/50 dark:hover:text-white/50"
+                    aria-label="gateremark on X"
+                    rel="noopener noreferrer"
                 >
                     gateremark
                 </a>{" "}
@@ -19,15 +21,19 @@ export default function Footer(props: Props) {
             <div className="flex space-x-4 pb-4 sm:pb-0">
                 <Link
                     href="https://twitter.com/gatere_mark"
+                    target="_blank"
                     className=""
                     aria-label="gateremark on X"
+                    rel="noopener noreferrer"
                 >
                     <SiX className="text-lg hover:scale-110 transition duration-150" />
                 </Link>
                 <Link
                     href="https://github.com/gateremark"
+                    target="_blank"
                     className=""
                     aria-label="gateremark on GitHub"
+                    rel="noopener noreferrer"
                 >
                     <SiGithub className="text-lg hover:scale-110 transition duration-150" />
                 </Link>

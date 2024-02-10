@@ -1,4 +1,4 @@
-export default function SquigglyLines() {
+export default function Lines() {
     return (
         <svg
             aria-hidden="true"
