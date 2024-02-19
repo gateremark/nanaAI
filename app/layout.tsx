@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "researchat",
+    title: "nanaAI",
     description: "Empower your studies with AI and arXiv.",
     openGraph: {
         images: [

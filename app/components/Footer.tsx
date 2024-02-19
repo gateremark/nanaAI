@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { SiGithub, SiX } from "react-icons/si";
+import { SiX } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 type Props = {};
 
@@ -29,13 +30,13 @@ export default function Footer(props: Props) {
                     <SiX className="text-lg hover:scale-110 transition duration-150" />
                 </Link>
                 <Link
-                    href="https://github.com/gateremark"
+                    href="https://www.linkedin.com/in/gateremark/"
                     target="_blank"
                     className=""
                     aria-label="gateremark on GitHub"
                     rel="noopener noreferrer"
                 >
-                    <SiGithub className="text-lg hover:scale-110 transition duration-150" />
+                    <FaLinkedinIn className="text-xl hover:scale-110 transition duration-150" />
                 </Link>
             </div>
         </div>
