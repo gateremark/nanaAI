@@ -25,11 +25,13 @@ export default function Starthero(props: Props) {
             <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-gray-900 sm:text-5xl md:text-7xl text-center dark:text-gray-500">
                 Empower your studies <br />
                 <span
-                    className={`text-center text-3xl sm:text-[60px] font-normal leading-[72px] tracking-[-0.6px] sm:tracking-[-1.2px] bg-clip-text ${
-                        resolvedTheme === "light" ? "bg_text" : "bg_text_dark"
+                    className={`text-center text-3xl sm:text-[60px] font-normal leading-[72px] tracking-[-0.6px] sm:tracking-[-1.2px] bg-clip-text text-transparent ${
+                        resolvedTheme === "light"
+                            ? "bg-gradient-to-r from-[#101023] via-[#10102360] to-[#10102395]"
+                            : "bg-gradient-to-r from-[#808080] via-[#80808060] to-[#80808095]"
                     } pb-3 sm:pb-[30px]`}
                 >
-                    with your Voice
+                    with Voice
                 </span>
                 <span className="relative whitespace-nowrap text-[#3087df]">
                     <Lines />
@@ -45,7 +47,7 @@ export default function Starthero(props: Props) {
                 by transforming your interaction with these papers and blogs.
             </p>
             <Link href="/getstarted">
-                <button className="bg_linear text-[#ffffff] rounded-full sm:px-14 px-12 py-[2.5px] sm:py-4 text-center text-xl sm:text-[30px] font-medium leading-[37px] tracking-[-0.3px] hover:scale-105 active:scale-95 transition-transform duration-75">
+                <button className=" bg-gradient-to-r from-[#1f1f1f] from-[20%] to-[#1f1f1f90] dark:from-[#2e2e2e] dark:to-[#1f1f1f90] text-[#ffffff] rounded-full sm:px-14 px-12 py-[2.5px] sm:py-4 text-center text-xl sm:text-[30px] font-medium leading-[37px] tracking-[-0.3px] hover:scale-105 active:scale-95 transition-transform duration-75">
                     Get Started
                 </button>
             </Link>

@@ -15,36 +15,3 @@
     border-radius: 10px;
     opacity: 1;
 }
-
-.bg_text {
-    background: linear-gradient(
-        90deg,
-        rgb(16, 16, 35) 10.71%,
-        rgba(15, 15, 30, 0.64) 50.71%,
-        rgba(13, 13, 25, 0.84) 88.54%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.bg_text_dark {
-    background: linear-gradient(
-        90deg,
-        rgb(107, 107, 107) 10.71%,
-        rgba(80, 80, 80, 0.64) 50.71%,
-        rgb(107, 107, 107) 88.54%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.bg_linear {
-    background: linear-gradient(
-        90deg,
-        rgb(31, 31, 31) 10.71%,
-        rgba(29, 29, 29, 0.64) 50.71%,
-        rgba(19, 19, 19, 0.84) 88.54%
-    );
-}
