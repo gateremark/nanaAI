@@ -41,7 +41,8 @@ export default function FileUpload(props: Props) {
                 />
                 <>
                     <p className="text-gray-500 text-sm mt-2">
-                        Drag 'n' drop a PDF here, or click to select files
+                        Drag &apos;n&apos; drop a PDF here, or click to select
+                        files
                     </p>
                 </>
             </div>
