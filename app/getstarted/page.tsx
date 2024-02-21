@@ -4,10 +4,11 @@ import Footer from "@/app/components/Footer";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Logo from "@/app/assets/logo";
-import ThemeIcon from "@/app/assets/themeIcon";
+import { ThemeIcon } from "@/app/assets/themeIcon";
 import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 type Props = {};
 
@@ -29,9 +30,9 @@ export default function WelcomePage(props: Props) {
                         Welcome{" "}
                         <span className=" font-semibold"> {userName} </span>
                     </p>
-                    <span className=" w-8 h-auto flex items-center justify-center">
+                   
                         <ThemeIcon />
-                    </span>
+                    
 
                     <span className=" w-8 h-auto flex items-center justify-center">
                         <UserButton afterSignOutUrl="/" />
@@ -39,6 +40,7 @@ export default function WelcomePage(props: Props) {
                 </div>{" "}
             </Navbar>
             Get Started Page
+            <Button> Hello there</Button>
             <Footer />
         </div>
     );

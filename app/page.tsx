@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Footer from "./components/Footer";
 import Logo from "@/app/assets/logo";
-import ThemeIcon from "@/app/assets/themeIcon";
+import { ThemeIcon } from "@/app/assets/themeIcon";
 import Starthero from "./components/Starthero";
 import { useUser } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
