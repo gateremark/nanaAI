@@ -47,7 +47,7 @@ export default function WelcomePage(props: Props) {
                 </div>{" "}
             </Navbar>
             <div className=" flex flex-col my-4 gap-3">
-                <span className=" text-center">
+                <span className=" text-center px-4 sm:px-0">
                     Do you want to Chat with a{" "}
                     <span className=" text-lg font-semibold">PDF</span> or a{" "}
                     <span className="text-lg font-semibold">Web Page</span>{" "}
@@ -90,7 +90,7 @@ export default function WelcomePage(props: Props) {
 
                 {/* <FileUpload /> */}
             </div>
-            <Footer className="fixed bottom-0 max-w-6xl text-center h-16 sm:h-20 w-full sm:pt-2 py-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3" />
+            <Footer className="fixed bottom-0 max-w-6xl text-center h-20 w-full sm:pt-2 pt-4 border-t mt-5 flex sm:flex-row flex-col justify-between items-center px-3 space-y-3 sm:mb-0 mb-3" />
         </div>
     );
 }

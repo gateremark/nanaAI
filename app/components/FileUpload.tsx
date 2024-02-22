@@ -66,7 +66,7 @@ export default function FileUpload(props: Props) {
         },
     });
     return (
-        <div className=" p-2 bg-white rounded-xl relative">
+        <div className=" p-2 bg-white rounded-xl relative mx-2 sm:mx-0">
             <Toaster richColors />
             <div
                 {...getRootProps({
