@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import { ClerkProvider } from "@clerk/nextjs";
+import ReactQueryProviders from "./components/ReactQueryProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
         ],
     },
     icons: {
-        icon: "/icon.ico",
+        icon: "/favicon.ico",
     },
 };
 
@@ -28,15 +29,16 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-
         <ClerkProvider>
-            <html lang="en">
-                <body className={inter.className}>
-                    <Providers>
-                        {children} <Analytics />
-                    </Providers>
-                </body>
-            </html>
+            <ReactQueryProviders>
+                <html lang="en">
+                    <body className={inter.className}>
+                        <Providers>
+                            {children} <Analytics />
+                        </Providers>
+                    </body>
+                </html>
+            </ReactQueryProviders>
         </ClerkProvider>
     );
 }

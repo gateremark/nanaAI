@@ -33,14 +33,16 @@ export async function uploadFile(file: File) {
             .promise();
 
         await upload.then((data) => {
-            console.log("successfully uploaded file", file_key);
+            console.log("successfully uploaded file: ", file_key);
         });
 
         return Promise.resolve({
             file_key,
             file_name: file.name,
         });
-    } catch (error) {}
+    } catch (error) {
+        return Promise.reject(error);
+    }
 }
 
 export function getS3Url(file_key: string) {

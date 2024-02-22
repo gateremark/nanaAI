@@ -23,7 +23,7 @@ export default function WelcomePage(props: Props) {
     const [type, setType] = useState("pdf");
 
     const onChange = (e: any) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setType(e.target.value);
     };
     return (
