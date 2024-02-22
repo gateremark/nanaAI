@@ -11,7 +11,7 @@ export default function Starthero(props: Props) {
         <div className="flex flex-col h-screen items-center justify-center gap-5">
             <div className="flex justify-center">
                 <a
-                    className=" shadow-inner-lg rounded-full flex items-center gap-[3px] sm:gap-2 py-0.5 sm:py-3 px-6 dark:border-[#3087df] dark:border  hover:scale-105 active:scale-95 transition-transform duration-75"
+                    className=" shadow-inner-lg rounded-full flex items-center gap-[3px] sm:gap-2 py-2 sm:py-3 px-8 dark:border-[#3087df] dark:border  hover:scale-105 active:scale-95 transition-transform duration-75"
                     href="https://github.com/gateremark"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export default function Starthero(props: Props) {
                     <span className="relative"> and AI</span>
                 </span>
             </h1>
-            <p className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7 text-center dark:text-slate-600">
+            <p className="mx-auto mt-12 max-w-xl text-lg text-slate-700 leading-7 text-center dark:text-slate-600 px-2 sm:px-0">
                 Do you find it hard to navigate through complex{" "}
                 <span className=" underline">research papers</span> and{" "}
                 <span className=" underline">blogs</span>? With the added power
@@ -47,7 +47,7 @@ export default function Starthero(props: Props) {
                 by transforming your interaction with these papers and blogs.
             </p>
             <Link href="/getstarted">
-                <button className=" bg-gradient-to-r from-[#1f1f1f] from-[20%] to-[#1f1f1f90] dark:from-[#2e2e2e] dark:to-[#1f1f1f90] text-[#ffffff] rounded-full sm:px-14 px-12 py-[2.5px] sm:py-4 text-center text-xl sm:text-[30px] font-medium leading-[37px] tracking-[-0.3px] hover:scale-105 active:scale-95 transition-transform duration-75">
+                <button className=" bg-gradient-to-r from-[#1f1f1f] from-[20%] to-[#1f1f1f90] dark:from-[#2e2e2e] dark:to-[#1f1f1f90] text-[#ffffff] rounded-full sm:px-14 px-12 py-3 sm:py-4 text-center text-xl sm:text-[30px] font-medium leading-[37px] tracking-[-0.3px] hover:scale-105 active:scale-95 transition-transform duration-75">
                     Get Started
                 </button>
             </Link>
