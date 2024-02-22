@@ -75,9 +75,8 @@ export default function FileUpload(props: Props) {
                 })}
             >
                 <input
-                    {...getInputProps}
-                    className="cursor-pointer bg-transparent no-underline border-none focus:outline-none active:outline-none"
-                    style={{ caretColor: "transparent" }}
+                    {...getInputProps()}
+                    className=" w-full h-full"
                 />
                 {uploading || status === "pending" ? (
                     <>
@@ -93,7 +92,7 @@ export default function FileUpload(props: Props) {
                         {" "}
                         <FaFileArrowDown className=" dark:text-[#020817] text-[#020817] absolute left-[47%] text-3xl top-4" />
                         <>
-                            <p className="text-gray-500 text-sm mt-2">
+                            <p className="text-gray-500 text-sm mt-6">
                                 Drag &apos;n&apos; drop a PDF here, or click to
                                 select (Max size: 10MB)
                             </p>

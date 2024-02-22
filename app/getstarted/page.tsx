@@ -34,7 +34,7 @@ export default function WelcomePage(props: Props) {
                     <Logo />
                 </Link>
                 <div className="flex space-x-6 justify-center items-center absolute right-1 bottom-1 sm:relative">
-                    <p className="font-medium text-base border-r border-gray-300 pr-4 space-x-2 hidden sm:flex">
+                    <p className="font-medium text-base border-r border-gray-300 pr-4 space-x-2 hidden sm:flex gap-2">
                         Welcome{" "}
                         <span className=" font-semibold"> {userName} </span>
                     </p>
