@@ -18,13 +18,13 @@ export default function Home() {
     useEffect(() => setMounted(true), []);
     if (!mounted) return null;
     return (
-        <main className="flex max-w-6xl mx-auto flex-col items-center py-2 min-h-screen">
-            <Navbar>
+        <main className="flex max-w-6xl mx-auto flex-col items-center sm:py-2 pb-2 min-h-screen">
+            <Navbar >
                 <Link href="/" className="flex space-x-2">
                     <Logo />
                 </Link>
 
-                <div className="flex space-x-6 justify-center items-center">
+                <div className="flex space-x-6 justify-center items-center absolute right-1 bottom-1 sm:relative">
                     <Link
                         href="/getstarted"
                         className="border-r border-gray-300 pr-4 space-x-2 hover:text-blue-400 transition hidden sm:flex"

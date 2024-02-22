@@ -66,12 +66,12 @@ export default function FileUpload(props: Props) {
         },
     });
     return (
-        <div className=" p-2 bg-white rounded-xl">
+        <div className=" p-2 bg-white rounded-xl relative">
             <Toaster richColors />
             <div
                 {...getRootProps({
                     className:
-                        "cursor-pointer p-4 border-dashed border-2 border-gray-300 rounded-xl text-center hover:border-gray-500 transition duration-300 ease-in-out relative",
+                        "cursor-pointer p-4 border-dashed border-2 border-gray-300 rounded-xl text-center hover:border-gray-500 transition duration-300 ease-in-out",
                 })}
             >
                 <input
@@ -91,7 +91,7 @@ export default function FileUpload(props: Props) {
                 ) : (
                     <>
                         {" "}
-                        <FaFileArrowDown className=" dark:text-[#020817] text-[#020817] absolute left-1/2 text-3xl right-1/2 top-2" />
+                        <FaFileArrowDown className=" dark:text-[#020817] text-[#020817] absolute left-[47%] text-3xl top-4" />
                         <>
                             <p className="text-gray-500 text-sm mt-2">
                                 Drag &apos;n&apos; drop a PDF here, or click to
