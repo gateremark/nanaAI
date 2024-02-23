@@ -8,16 +8,15 @@ import { useState } from "react";
 
 type Props = {};
 
+type MutationTypes = {
+    file_key: string;
+    file_name: string;
+};
+
 export default function FileUpload(props: Props) {
     const [uploading, setUploading] = useState(false);
     const { mutate, status } = useMutation({
-        mutationFn: async ({
-            file_key,
-            file_name,
-        }: {
-            file_key: string;
-            file_name: string;
-        }) => {
+        mutationFn: async ({ file_key, file_name }: MutationTypes) => {
             const response = await axios.post("/api/create-chat", {
                 file_key,
                 file_name,
@@ -66,7 +65,7 @@ export default function FileUpload(props: Props) {
         },
     });
     return (
-        <div className=" p-2 bg-white rounded-xl relative mx-2 sm:mx-0">
+        <div className=" p-2 rounded-xl relative mx-2 sm:mx-0 bg-gray-100">
             <Toaster richColors />
             <div
                 {...getRootProps({
@@ -74,10 +73,7 @@ export default function FileUpload(props: Props) {
                         "cursor-pointer p-4 border-dashed border-2 border-gray-300 rounded-xl text-center hover:border-gray-500 transition duration-300 ease-in-out",
                 })}
             >
-                <input
-                    {...getInputProps()}
-                    className=" w-full h-full"
-                />
+                <input {...getInputProps()} className=" w-full h-full" />
                 {uploading || status === "pending" ? (
                     <>
                         <div className="flex justify-center items-center flex-col">
