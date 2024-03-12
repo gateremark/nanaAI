@@ -10,6 +10,7 @@ import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/app/components/FileUpload";
+import UrlUpload from "@/app/components/UrlUpload";
 
 type Props = {};
 
@@ -87,6 +88,8 @@ export default function WelcomePage(props: Props) {
                     </Button>
                 </span>
                 {type === "pdf" && <FileUpload />}
+
+                {type === "web" && <UrlUpload />}
 
                 {/* <FileUpload /> */}
             </div>
