@@ -20,7 +20,7 @@ export default function Home() {
     useEffect(() => setMounted(true), []);
     if (!mounted) return null;
     return (
-        <main className="flex max-w-6xl mx-auto flex-col items-center sm:py-2 pb-2 min-h-screen">
+        <main className="flex max-w-7xl mx-auto flex-col items-center sm:py-2 pb-2 min-h-screen">
             <Navbar>
                 <Link href="/" className="flex space-x-2">
                     <Logo />

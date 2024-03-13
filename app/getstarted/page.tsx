@@ -28,7 +28,7 @@ export default function WelcomePage(props: Props) {
         setType(e.target.value);
     };
     return (
-        <div className="flex max-w-[1200px] mx-auto flex-col items-center py-2 min-h-screen">
+        <div className="flex max-w-7xl mx-auto flex-col items-center py-2 min-h-screen">
             <Navbar>
                 {" "}
                 <Link href="/" className="flex space-x-2">
