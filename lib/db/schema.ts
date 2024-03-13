@@ -21,7 +21,7 @@ export const voicechats = pgTable("voicechats", {
 
 export const messages = pgTable("messages", {
     id: serial("id").primaryKey(),
-    chatID: integer("chatID")
+    chatId: integer("chatId")
         .references(() => voicechats.id)
         .notNull(),
     content: text("content").notNull(),

@@ -16,6 +16,7 @@ type MutationTypes = {
 
 export default function FileUpload(props: Props) {
     const [uploading, setUploading] = useState(false);
+    const [acceptedFileName, setAcceptedFileName] = useState("");
     const { mutate, status } = useMutation({
         mutationFn: async ({ file_key, file_name }: MutationTypes) => {
             const response = await axios.post("/api/create-chat", {
@@ -31,7 +32,9 @@ export default function FileUpload(props: Props) {
         },
         maxFiles: 1,
         onDrop: async (acceptedFiles) => {
-            console.log(acceptedFiles);
+            // console.log("acceptedFiles: ", acceptedFiles[0].name);
+            setAcceptedFileName(acceptedFiles[0].name);
+            // console.log("acceptedFilesState: ", acceptedFileName);
             const file = acceptedFiles[0];
             if (file.size > 10 * 1024 * 1024) {
                 toast.error("File too large. Max size is 10MB.");
@@ -80,7 +83,11 @@ export default function FileUpload(props: Props) {
                         <div className="flex justify-center items-center flex-col">
                             <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500"></div>
                             <p className="text-gray-500 text-sm mt-2">
-                                Uploading...
+                                Processing{" "}
+                                <span className="font-semibold">
+                                    {acceptedFileName}
+                                </span>{" "}
+                                ...
                             </p>
                         </div>
                     </>

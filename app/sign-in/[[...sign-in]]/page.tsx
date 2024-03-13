@@ -14,9 +14,13 @@ const Signin = (props: Props) => {
             <div className="flex mx-auto justify-center items-center">
                 <SignIn
                     appearance={{
-                        elements: {
-                            formButtonPrimary:
-                                " hover:bg-blue-700 transition text-sm normal-case",
+                        // elements: {
+                        //     formButtonPrimary:
+                        //         " hover:bg-blue-700 transition text-sm normal-case",
+                        // },
+                        variables: {
+                            colorPrimary: "blue",
+                            colorText: "black",
                         },
                     }}
                     // appearance={

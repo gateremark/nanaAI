@@ -22,7 +22,7 @@ export async function uploadFile(file: File) {
         const upload = new PutObjectCommand(params);
 
         await s3.send(upload);
-        console.log("successfully uploaded file: ", file_key);
+        // console.log("successfully uploaded file: ", file_key);
 
         return Promise.resolve({
             file_key,
