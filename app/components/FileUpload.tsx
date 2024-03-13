@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useState } from "react";
+import { SlCloudUpload } from "react-icons/sl";
 
 type Props = {};
 
@@ -86,7 +87,7 @@ export default function FileUpload(props: Props) {
                 ) : (
                     <>
                         {" "}
-                        <FaFileArrowDown className=" dark:text-[#020817] text-[#020817] absolute left-[47%] text-3xl top-4" />
+                        <SlCloudUpload className=" text-[#020817] absolute left-[47%] text-4xl top-4" />
                         <>
                             <p className="text-gray-500 text-sm mt-8">
                                 Drag &apos;n&apos; drop a PDF here, or click to
