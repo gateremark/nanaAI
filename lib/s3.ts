@@ -1,16 +1,13 @@
-import AWS from "aws-sdk";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 export async function uploadFile(file: File) {
     try {
-        AWS.config.update({
-            accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
-            secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
-        });
-        const s3 = new AWS.S3({
-            params: {
-                Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME,
-            },
+        const s3 = new S3Client({
             region: `${process.env.NEXT_PUBLIC_AWS_REGION}`,
+            credentials: {
+                accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID!,
+                secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY!,
+            },
         });
 
         const file_key =
@@ -18,23 +15,14 @@ export async function uploadFile(file: File) {
 
         const params = {
             Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME!,
-            Key: file_key,
             Body: file,
+            Key: file_key,
         };
 
-        const upload = s3
-            .putObject(params)
-            .on("httpUploadProgress", (evt) => {
-                console.log(
-                    "Uploading file...",
-                    parseInt(((evt.loaded * 100) / evt.total).toString())
-                ) + "%";
-            })
-            .promise();
+        const upload = new PutObjectCommand(params);
 
-        await upload.then((data) => {
-            console.log("successfully uploaded file: ", file_key);
-        });
+        await s3.send(upload);
+        console.log("successfully uploaded file: ", file_key);
 
         return Promise.resolve({
             file_key,
