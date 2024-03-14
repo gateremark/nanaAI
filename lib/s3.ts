@@ -1,6 +1,6 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
-export async function uploadFile(file: File) {
+export async function uploadFileToS3(file: File) {
     try {
         const s3 = new S3Client({
             region: `${process.env.NEXT_PUBLIC_AWS_REGION}`,
@@ -23,6 +23,7 @@ export async function uploadFile(file: File) {
 
         await s3.send(upload);
         // console.log("successfully uploaded file: ", file_key);
+
 
         return Promise.resolve({
             file_key,

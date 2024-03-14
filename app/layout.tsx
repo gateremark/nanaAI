@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 import { ClerkProvider } from "@clerk/nextjs";
 import ReactQueryProviders from "./components/ReactQueryProviders";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     openGraph: {
         images: [
             {
-                url: "https://res.cloudinary.com/dvuazircp/image/upload/v1708341812/new_portfolio/nana_ewxcnl.png",
+                url: "https://res.cloudinary.com/dvuazircp/image/upload/v1710457208/nanaogimg_o0aamm.webp",
             },
         ],
     },
@@ -34,7 +34,8 @@ export default function RootLayout({
                 <html lang="en">
                     <body className={inter.className}>
                         <Providers>
-                            {children} <Analytics />
+                            {children}
+                            {/* <Analytics /> */}
                         </Providers>
                     </body>
                 </html>

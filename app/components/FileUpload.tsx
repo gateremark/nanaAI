@@ -1,4 +1,4 @@
-import { uploadFile } from "@/lib/s3";
+import { uploadFileToS3 } from "@/lib/s3";
 import { useDropzone } from "react-dropzone";
 import { FaFileArrowDown } from "react-icons/fa6";
 import { useMutation } from "@tanstack/react-query";
@@ -44,7 +44,7 @@ export default function FileUpload(props: Props) {
 
             try {
                 setUploading(true);
-                const data = await uploadFile(file);
+                const data = await uploadFileToS3(file);
                 if (!data?.file_key || !data?.file_name) {
                     toast.error("Failed to upload file!");
                     // alert("Failed to upload file!");

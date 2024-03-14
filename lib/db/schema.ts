@@ -12,19 +12,19 @@ export const userSystemEnum = pgEnum("userSystemEnum", ["system", "user"]);
 
 export const voicechats = pgTable("voicechats", {
     id: serial("id").primaryKey(),
-    pdfName: text("pdfName").notNull(),
-    pdfUrl: text("pdfUrl").notNull(),
-    createdAT: timestamp("createdAT").notNull().defaultNow(),
-    userId: varchar("userId", { length: 256 }).notNull(),
-    fileKey: text("fileKey").notNull(),
+    pdfName: text("pdf_name").notNull(),
+    pdfUrl: text("pdf_url").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    userId: varchar("user_id", { length: 256 }).notNull(),
+    fileKey: text("file_key").notNull(),
 });
 
 export const messages = pgTable("messages", {
     id: serial("id").primaryKey(),
-    chatId: integer("chatId")
-        .references(() => voicechats.id)
-        .notNull(),
+    chatId: integer("chat_id")
+        .notNull()
+        .references(() => voicechats.id),
     content: text("content").notNull(),
-    createdAT: timestamp("createdAT").notNull().defaultNow(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
     role: userSystemEnum("role").notNull(),
 });
