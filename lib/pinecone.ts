@@ -1,4 +1,4 @@
-import { Pinecone } from "@pinecone-database/pinecone";
+import { Pinecone, RecordMetadataValue } from "@pinecone-database/pinecone";
 import { downloadFromS3 } from "./s3-server";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import md5 from "md5";
@@ -35,19 +35,19 @@ type PDFPage = {
 
 export async function loadS3IntoPinecone(file_key: string) {
     // 1. Get the pdf file from S3 - downloadFromS3
-    console.log("Loading S3 file into Pinecone...");
+    // console.log("Loading S3 file into Pinecone...");
 
     const file_name = await downloadFromS3(file_key);
-    console.log("downloaded file from s3: ", file_name);
+    // console.log("downloaded file from s3: ", file_name);
 
     if (!file_name) {
         throw new Error("Failed to download file from S3!");
     }
 
-    const pdfLoader = new PDFLoader(file_name as string); 
+    const pdfLoader = new PDFLoader(file_name as string);
     const pages = (await pdfLoader.load()) as PDFPage[];
     // console.log("downloaded file pages:", pages);
-    return pages;
+    // return pages;
 
     // 2. Load the pdf file into Pinecone - split and segment
 
@@ -60,11 +60,40 @@ export async function loadS3IntoPinecone(file_key: string) {
 
     console.log("Loading vectors into Pinecone...");
 
-    const namespace = convertToAscii(file_key);
+    // const namespace = convertToAscii(file_key);
+
+    {
+        /* ------------------------------ Testine upload to pinecone ----------*/
+    }
+
+    // Prepare the records for upsert
+    const records = vector.map((vec) => ({
+        id: vec.id,
+        values: vec.values,
+        metadata: {
+            text: vec.metadata.text as RecordMetadataValue,
+            pageNumber: vec.metadata.pageNumber as RecordMetadataValue,
+        },
+    }));
+
+    // Upsert the records into Pinecone
+    // console.log("file_key: ", file_key);
+    // console.log("file_Key_Ascii: ", convertToAscii(file_key));
+    const ns = pineconeIndex.namespace(convertToAscii(file_key));
+    // console.log("namespace: ", ns);
+    await ns.upsert(records);
+
+    console.log("Vectors loaded into Pinecone successfully!");
+
+    {
+        /* ------------------------------ Testine upload to pinecone ----------*/
+    }
 }
 
 async function embedDocument(doc: Document) {
     try {
+        // console.log("doc pageContent", doc.pageContent);
+        // console.log("doc metadata", doc.metadata);
         const embeddings = await getEmbeddings(doc.pageContent);
         const hash = md5(doc.pageContent);
         return {
@@ -76,6 +105,7 @@ async function embedDocument(doc: Document) {
             },
         };
     } catch (error) {
+        console.log("An error occured in embedDocument!", error);
         throw error;
     }
 }
@@ -88,6 +118,7 @@ export const truncateStringByBytes = (str: string, bytes: number) => {
 async function prepareDocument(page: PDFPage) {
     let { pageContent, metadata } = page;
     pageContent = pageContent.replace(/\n/g, " ");
+    // console.log("prepared rejex pageContent: ", pageContent);
     // split the docs
     const splitter = new RecursiveCharacterTextSplitter();
     const docs = await splitter.splitDocuments([
@@ -99,5 +130,6 @@ async function prepareDocument(page: PDFPage) {
             },
         }),
     ]);
+    // console.log("prepared docs: ", docs);
     return docs;
 }

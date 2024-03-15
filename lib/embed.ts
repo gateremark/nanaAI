@@ -13,10 +13,15 @@ export async function getEmbeddings(text: string) {
             // text-embedding-ada-002
             input: text.replace(/\n/g, " "),
         });
-
         const result = await response.json();
-        return result.data[0].embedding as number[];
+        if (result.data && result.data[0]) {
+            return result.data[0].embedding as number[];
+        } else {
+            console.log("No data returned from createEmbedding");
+            return [];
+        }
     } catch (error) {
+        console.log("An error occured in getEmbeddings!", error);
         throw error;
     }
 }
