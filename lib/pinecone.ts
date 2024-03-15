@@ -46,7 +46,7 @@ export async function loadS3IntoPinecone(file_key: string) {
 
     const pdfLoader = new PDFLoader(file_name as string); 
     const pages = (await pdfLoader.load()) as PDFPage[];
-    console.log("downloaded file pages:", pages);
+    // console.log("downloaded file pages:", pages);
     return pages;
 
     // 2. Load the pdf file into Pinecone - split and segment
