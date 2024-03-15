@@ -23,6 +23,7 @@ export default function FileUpload(props: Props) {
                 file_key,
                 file_name,
             });
+            // console.log("Response from route: ", response);
             return response.data;
         },
     });
@@ -60,7 +61,7 @@ export default function FileUpload(props: Props) {
                         toast.error("Failed to create chat!");
                     },
                 });
-                console.log("data:", data);
+                console.log("data of uploaded file to s3:", data);
             } catch (error) {
                 console.log(error);
             } finally {

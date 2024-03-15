@@ -9,15 +9,15 @@ import {
 import { getEmbeddings } from "./embed";
 import { convertToAscii } from "./utils";
 
+if (!process.env.PINECONE_API_KEY) {
+    throw new Error("Pinecone API key not found!");
+}
+
 const pinecone = new Pinecone({
     apiKey: process.env.PINECONE_API_KEY ?? "",
 });
 
 const PINECONE_INDEX_NAME = process.env.PINECONE_INDEX_NAME ?? "";
-
-if (!process.env.PINECONE_API_KEY) {
-    throw new Error("Pinecone API key not found!");
-}
 
 if (!PINECONE_INDEX_NAME) {
     throw new Error("Pinecone index name not found!");
@@ -33,18 +33,21 @@ type PDFPage = {
     };
 };
 
-export async function loadS3IntoPinecone(fileKey: string) {
+export async function loadS3IntoPinecone(file_key: string) {
     // 1. Get the pdf file from S3 - downloadFromS3
     console.log("Loading S3 file into Pinecone...");
 
-    const file_name = await downloadFromS3(fileKey);
+    const file_name = await downloadFromS3(file_key);
+    console.log("downloaded file from s3: ", file_name);
 
     if (!file_name) {
         throw new Error("Failed to download file from S3!");
     }
 
-    const pdfLoader = new PDFLoader(file_name);
+    const pdfLoader = new PDFLoader(file_name as string); 
     const pages = (await pdfLoader.load()) as PDFPage[];
+    console.log("downloaded file pages:", pages);
+    return pages;
 
     // 2. Load the pdf file into Pinecone - split and segment
 
@@ -57,22 +60,21 @@ export async function loadS3IntoPinecone(fileKey: string) {
 
     console.log("Loading vectors into Pinecone...");
 
-    const namespace = convertToAscii(fileKey);
-    
+    const namespace = convertToAscii(file_key);
 }
 
 async function embedDocument(doc: Document) {
     try {
         const embeddings = await getEmbeddings(doc.pageContent);
         const hash = md5(doc.pageContent);
-        return { 
+        return {
             id: hash,
             values: embeddings,
             metadata: {
                 text: doc.metadata.text,
                 pageNumber: doc.metadata.pageNumber,
-            }
-         };
+            },
+        };
     } catch (error) {
         throw error;
     }
